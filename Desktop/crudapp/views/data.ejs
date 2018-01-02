@@ -1,0 +1,72 @@
+<html>
+<head>
+<style>
+body{background: skyblue; font-family: verdana; color: #fff; padding: 30px;}
+h1{font-size: 48px; text-transform: uppercase; letter-spacing: 2px; text-align: center;}
+h2{font-size: 30px; text-transform: uppercase; letter-spacing: 2px; text-align: center;}
+p, li{font-size: 16px; text-align: center;}
+
+</style>
+
+</head>
+
+<body>
+<h1>Employee</h1>
+<% include partials/nav.ejs %>
+<% if(errors != undefined){ %>
+<ul>
+<% errors.forEach(function(error){ %>
+<li><%= error.msg %></li>
+
+<% }) %>
+</ul>
+
+<% } %>
+
+<script type="text/javascript">
+	
+function insertData(){
+	document.theForm.action='/employee_insert';
+	document.theForm.method='POST';
+
+}
+
+function updateData(){
+	document.theForm.action='employee_update';
+	document.theForm.method='PUT';
+}
+
+function deleteData(){
+	document.theForm.action='employee_delete';
+	document.theForm.method='POST';
+}
+
+</script>
+
+
+
+<form name='theForm'>
+<label>Name</label><br>
+<input type = 'text' name='name'>
+<br>
+<label>Department</label><br>
+<input type = 'text' name='dept'>
+<br>
+<label>Age</label><br>
+<input type = 'text' name='age'>
+<br>
+<label>Domain</label><br>
+<input type = 'text' name='domain'>
+<br>
+<label>Email</label><br>
+<input type = 'text' name='email'>
+<br><br>
+<input type = 'submit' value='Insert' onclick="insertData()">
+<br><br>
+<input type = 'submit' value='Update' onclick="updateData()">
+<br><br>
+<input type = 'submit' value='Delete' onclick ="deleteData()">
+</form>
+</body>
+</html>
+

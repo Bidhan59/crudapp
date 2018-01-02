@@ -1,0 +1,54 @@
+<html>
+<head>
+<style>
+body{background: skyblue; font-family: verdana; color: #fff; padding: 30px;}
+h1{font-size: 48px; text-transform: uppercase; letter-spacing: 2px; text-align: center;}
+h2{font-size: 30px; text-transform: uppercase; letter-spacing: 2px; text-align: center;}
+p, li{font-size: 16px; text-align: center;}
+
+</style>
+
+</head>
+
+<body>
+<h1>Employee</h1>
+<% include partials/nav.ejs %>
+<% if(errors != undefined){ %>
+<ul>
+<% errors.forEach(function(error){ %>
+<li><%= error.msg %></li>
+
+<% }) %>
+</ul>
+
+<% } %>
+<script type="text/javascript">
+	
+function infodepartment(){
+	document.theForm.action='employee/department';
+
+}
+
+function infodomain(){
+	document.theForm.action='employee/domain';
+}
+
+
+
+</script>
+
+
+
+<form method = "GET" name='theForm'>
+
+<label>Your Email Id</label><br>
+<input type = 'text' name='email'>
+<br><br>
+<input type = 'submit' value='About department' onclick="infodepartment()">
+<br><br>
+<input type = 'submit' value='About Domain' onclick="infodomain()">
+
+</form>
+</body>
+</html>
+
